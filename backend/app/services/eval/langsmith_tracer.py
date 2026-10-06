@@ -4,7 +4,6 @@ Activated only when LANGSMITH_API_KEY is set in the environment.
 Posts run start/end events to the LangSmith REST API (v1).
 No-ops silently if not configured.
 """
-import asyncio
 import time
 import uuid
 from contextlib import asynccontextmanager

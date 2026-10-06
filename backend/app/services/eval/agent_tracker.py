@@ -6,7 +6,6 @@ Keys:
   eval:agent:{name}:total_time — float (seconds) sum (for avg latency)
   eval:agent:{name}:calls      — integer (for avg latency calculation)
 """
-import time
 import app.database as _db
 
 _AGENTS = ["Planner", "Researcher", "Executor", "Critic", "Memory"]

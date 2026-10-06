@@ -76,8 +76,6 @@ async def upload_meeting(
     await db.commit()
 
     # Background processing
-    from app.services.meeting.pipeline import process_meeting
-    from app.database import AsyncSessionLocal
     asyncio.create_task(_run_pipeline(meeting_id, str(file_path)))
 
     return {"id": str(meeting_id), "status": "processing", "original_name": meeting.original_name}
@@ -113,6 +111,7 @@ async def list_blockers(
 ):
     """All unresolved blockers and decisions tracked across meetings."""
     import json
+
     from app.database import redis_client
     if not redis_client:
         return {"blockers": [], "decisions": []}

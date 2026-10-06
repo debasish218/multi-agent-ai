@@ -10,10 +10,10 @@ def setup_otel(app) -> None:
     endpoint = getattr(settings, "OTEL_EXPORTER_OTLP_ENDPOINT", None)
     try:
         from opentelemetry import trace
+        from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
         from opentelemetry.sdk.resources import Resource
         from opentelemetry.sdk.trace import TracerProvider
         from opentelemetry.sdk.trace.export import BatchSpanProcessor, ConsoleSpanExporter
-        from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
 
         resource = Resource.create({"service.name": "enterprise-ai-os"})
         provider = TracerProvider(resource=resource)

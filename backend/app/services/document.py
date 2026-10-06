@@ -1,10 +1,8 @@
 import uuid
-import os
-import asyncio
 from pathlib import Path
 
-from pypdf import PdfReader
 from ollama import AsyncClient
+from pypdf import PdfReader
 from qdrant_client import AsyncQdrantClient
 from qdrant_client.models import Distance, PointStruct, VectorParams
 from sqlalchemy import update

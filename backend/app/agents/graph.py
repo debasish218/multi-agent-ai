@@ -1,6 +1,5 @@
-from langgraph.graph import StateGraph, START, END
+from langgraph.graph import END, START, StateGraph
 
-from app.agents.state import AgentState
 from app.agents.nodes import (
     critic_node,
     execution_node,
@@ -8,6 +7,7 @@ from app.agents.nodes import (
     planning_node,
     research_node,
 )
+from app.agents.state import AgentState
 
 
 def _route_critic(state: AgentState) -> str:

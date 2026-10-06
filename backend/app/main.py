@@ -1,3 +1,4 @@
+import logging
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -14,10 +15,7 @@ from app.database import (
     disconnect_qdrant,
     disconnect_redis,
 )
-from app.routers import auth, ws, documents, chat, retrieval, memory, graph, meetings, browser, voice_ws, eval
-
-
-import logging
+from app.routers import auth, browser, chat, documents, eval, graph, meetings, memory, retrieval, voice_ws, ws
 
 logger = logging.getLogger(__name__)
 
@@ -59,7 +57,8 @@ if settings.PROMETHEUS_ENABLED:
         logger.warning("prometheus-fastapi-instrumentator not installed — /metrics disabled")
 
 # OpenTelemetry (no-op if packages missing or endpoint unset)
-from app.services.eval.otel_setup import setup_otel
+from app.services.eval.otel_setup import setup_otel  # noqa: E402
+
 setup_otel(app)
 
 app.add_middleware(

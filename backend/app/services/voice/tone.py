@@ -2,8 +2,8 @@
 Tone/emotion detection via llama3.1.
 Returns one of: neutral, positive, frustrated, confused, excited, concerned.
 """
-import asyncio
 from ollama import AsyncClient
+
 from app.config import settings
 
 TONES = ["neutral", "positive", "frustrated", "confused", "excited", "concerned"]

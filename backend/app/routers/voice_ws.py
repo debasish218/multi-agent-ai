@@ -28,9 +28,9 @@ import logging
 
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 
+from app.services.voice.agent_bridge import stream_response
 from app.services.voice.stt import transcribe_bytes
 from app.services.voice.tone import detect_tone
-from app.services.voice.agent_bridge import stream_response
 from app.services.voice.tts import synthesize_stream
 
 router = APIRouter()

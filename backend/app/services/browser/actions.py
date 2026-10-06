@@ -5,7 +5,6 @@ Takes a structured action dict from the LLM and runs it on the Playwright page.
 import re
 from urllib.parse import urlparse
 
-
 _BLOCKED_HOSTS = {"localhost", "127.0.0.1", "0.0.0.0", "::1"}
 
 

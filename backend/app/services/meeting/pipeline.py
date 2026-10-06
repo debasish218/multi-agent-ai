@@ -71,8 +71,9 @@ async def process_meeting(
 
 async def _track_unresolved(meeting_id: str, decisions: list[dict], blockers: list[dict]) -> None:
     try:
-        from app.database import redis_client
         import time
+
+        from app.database import redis_client
         if not redis_client:
             return
         ts = time.time()

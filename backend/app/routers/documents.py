@@ -1,13 +1,12 @@
 import uuid
-import shutil
 from pathlib import Path
 
-from fastapi import APIRouter, BackgroundTasks, Depends, Header, HTTPException, UploadFile, File, status
+from fastapi import APIRouter, BackgroundTasks, Depends, File, Header, HTTPException, UploadFile, status
 from pydantic import BaseModel
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.database import get_db, get_qdrant
+from app.database import get_db
 from app.models.document import Document
 from app.services.auth import auth_service
 from app.services.document import UPLOAD_DIR, process_document
@@ -76,7 +75,8 @@ async def upload_document(
 
 
 async def _process_in_background(doc_id: uuid.UUID, file_path: str):
-    from app.database import AsyncSessionLocal, get_qdrant as _get_qdrant
+    from app.database import AsyncSessionLocal
+    from app.database import get_qdrant as _get_qdrant
     async with AsyncSessionLocal() as db:
         await process_document(doc_id, file_path, db, _get_qdrant())
 

@@ -2,11 +2,9 @@
 Text-to-speech using edge-tts (free Microsoft Edge TTS, no API key).
 Yields audio data as bytes chunks suitable for streaming over WebSocket.
 """
-import asyncio
-import tempfile
 import os
+import tempfile
 from typing import AsyncGenerator
-
 
 VOICE = "en-US-AriaNeural"
 

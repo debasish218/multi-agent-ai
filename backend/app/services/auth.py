@@ -1,15 +1,16 @@
 import uuid
 from datetime import datetime, timedelta, timezone
 
-from fastapi import HTTPException, status
 import bcrypt
-from sqlalchemy import select, delete
+from fastapi import HTTPException, status
+from sqlalchemy import delete, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.config import settings
 from app.models.user import RefreshToken, User
 from app.schemas.auth import LoginRequest, RegisterRequest, TokenResponse
 from app.utils.jwt import create_access_token, create_refresh_token, decode_token, hash_token
+
 
 def _hash_password(password: str) -> str:
     return bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()

@@ -14,6 +14,7 @@ import asyncio
 import re
 
 from ollama import AsyncClient
+
 from app.config import settings
 
 _MODEL = "llama3.1"

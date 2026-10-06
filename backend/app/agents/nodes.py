@@ -41,7 +41,7 @@ async def _llm(system: str, user: str) -> str:
 
 async def _track(agent: str, start: float, success: bool = True) -> None:
     try:
-        from app.services.eval.agent_tracker import record_success, record_failure
+        from app.services.eval.agent_tracker import record_failure, record_success
         elapsed_ms = (time.time() - start) * 1000
         if success:
             await record_success(agent, elapsed_ms)

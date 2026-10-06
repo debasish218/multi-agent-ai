@@ -55,8 +55,8 @@ async def chat_agent(body: ChatRequest, token: str = Depends(_extract_bearer)):
     request_id = str(uuid.uuid4())
     queue: asyncio.Queue = asyncio.Queue()
 
-    from app.agents.nodes import status_queues
     from app.agents.graph import agent_graph
+    from app.agents.nodes import status_queues
 
     status_queues[request_id] = queue
 

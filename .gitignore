@@ -32,3 +32,4 @@ Thumbs.db
 # Data volumes (local dev)
 postgres_data/
 redis_data/
+.ruff_cache/

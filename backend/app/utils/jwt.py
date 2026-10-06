@@ -1,8 +1,8 @@
 import hashlib
 from datetime import datetime, timedelta, timezone
 
-from jose import JWTError, jwt
 from fastapi import HTTPException, status
+from jose import JWTError, jwt
 
 from app.config import settings
 

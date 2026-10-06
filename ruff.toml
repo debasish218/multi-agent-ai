@@ -1,0 +1,7 @@
+target-version = "py311"
+line-length = 120
+extend-exclude = [".venv", "node_modules"]
+
+[lint]
+# Core correctness rules: pyflakes + pycodestyle errors + import sorting
+select = ["E4", "E7", "E9", "F", "I"]
